@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./img/tic-tac-toe.png"
+      type="image/x-icon"
+    />
+    <script src="game.js" defer></script>
+  </head>
+
+  <body>
+    <p class="turnText" data-turn-text>Vez de Eduardo X</p>
+
+    <div class="board x" data-board>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+      <div class="cell" data-cell></div>
+    </div>
+
+    <!-- Pagina de inicial / para captar os inputs de name -->
+    <div class="usersName" data-users-name>
+      <header>
+        <h1 class="text-focus-in">Jogo da Velha</h1>
+      </header>
+      <form data-form>
+        <div class="form-control">
+          <input
+            type="text"
+            name="player1"
+            required
+            id="player1"
+            autocomplete="off"
+          />
+          <label>
+            <span style="transition-delay: 0ms">J</span
+            ><span style="transition-delay: 50ms">o</span
+            ><span style="transition-delay: 100ms">g</span
+            ><span style="transition-delay: 150ms">a</span
+            ><span style="transition-delay: 200ms">d</span
+            ><span style="transition-delay: 250ms">o</span
+            ><span style="transition-delay: 300ms">r</span>
+            <span style="transition-delay: 350ms">X</span>
+          </label>
+        </div>
+        <div class="form-control">
+          <input
+            type="text"
+            name="player2"
+            required
+            id="player2"
+            autocomplete="off"
+          />
+          <label>
+            <span style="transition-delay: 0ms">J</span
+            ><span style="transition-delay: 50ms">o</span
+            ><span style="transition-delay: 100ms">g</span
+            ><span style="transition-delay: 150ms">a</span
+            ><span style="transition-delay: 200ms">d</span
+            ><span style="transition-delay: 250ms">o</span
+            ><span style="transition-delay: 300ms">r</span>
+            <span style="transition-delay: 350ms">O</span>
+          </label>
+        </div>
+      </form>
+
+      <button class="playBtn" data-play-btn>Jogar</button>
+
+      <footer>
+        <a href="http://instagram.com/dudu_fk" target="_blank">@Dudu_Fk</a>
+      </footer>
+    </div>
+
+    <!-- Mensagem de Vitoria/Empate -->
+    <div class="winningMessage" data-winning-msg>
+      <p class="winningMessageText" data-winning-msg-txt>X Venceu!</p>
+      <button class="winningButton" data-restart-button>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>Reiniciar
+      </button>
+    </div>
+  </body>
+</html>

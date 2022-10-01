@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.text-focus-in {
+  animation: text-focus-in 1.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+.winCells {
+  z-index: 1;
+  border-color: #f1f5f91c !important;
+}
+
+body {
+  color: #f1f5f9;
+  font-family: "Righteous", cursive;
+  background-color: #833ab4;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 5em;
+  padding: 1em 0;
+}
+
+form {
+  margin-top: 5em;
+}
+
+p {
+  margin: 30px 0;
+}
+
+footer,
+a {
+  margin-top: 7em;
+  font-size: 25px;
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+.turnText {
+  margin-top: 3em;
+  font-size: 40px;
+}
+
+.board {
+  margin-top: -10em;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  background-color: #f1f5f94d !important;
+}
+
+/* Célula */
+.cell {
+  height: 100px;
+  width: 100px;
+  border: 2px solid #f1f5f9cc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.cell.x,
+.cell.circle {
+  cursor: default;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+  border-top: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+  border-left: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+  border-bottom: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+  border-right: none;
+}
+
+/* X */
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  height: calc(100px * 0.15);
+  width: calc(100px * 0.9);
+  background-color: #f1f5f9;
+  position: absolute;
+}
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before {
+  transform: rotate(45deg);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
+  transform: rotate(-45deg);
+}
+
+/* Circle */
+.cell.circle::before,
+.cell.circle::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  content: "";
+  height: calc(100px * 0.85);
+  width: calc(100px * 0.85);
+  background-color: #f1f5f9;
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* Mensagem Usuarios */
+.hiddeNamePage {
+  display: none !important;
+}
+
+.usersName {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  background-color: #833ab4;
+  flex-direction: column;
+}
+
+/* Input name player */
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
+  width: 190px;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: #fff;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  transform: translateY(-30px);
+}
+
+/* Botao de jogar */
+.playBtn {
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #833ab4;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 1000;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.playBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #833ab4;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+
+.playBtn:hover {
+  color: #e8e8e8;
+}
+
+.playBtn:hover::before {
+  width: 100%;
+}
+
+/* Mensagem de vitoria */
+.winningMessage {
+  font-size: 60px;
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 1em;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  flex-direction: column;
+}
+
+.winningButton {
+  margin-top: 34em;
+  position: relative;
+  padding: 1em 1.8em;
+  outline: none;
+  border: 1px solid #303030;
+  background: rgba(33, 33, 33, 0);
+  color: #ae00ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 15px;
+  overflow: hidden;
+  transition: 0.2s;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.winningButton:hover {
+  box-shadow: 0 0 10px #ae00ff, 0 0 25px #001eff, 0 0 50px #ae00ff;
+  transition-delay: 0.6s;
+}
+
+.winningButton span {
+  position: absolute;
+}
+
+.winningButton span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ae00ff);
+}
+
+.winningButton:hover span:nth-child(1) {
+  left: 100%;
+  transition: 0.7s;
+}
+
+.winningButton span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #001eff);
+}
+
+.winningButton:hover span:nth-child(3) {
+  right: 100%;
+  transition: 0.7s;
+  transition-delay: 0.35s;
+}
+
+.winningButton span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ae00ff);
+}
+
+.winningButton:hover span:nth-child(2) {
+  top: 100%;
+  transition: 0.7s;
+  transition-delay: 0.17s;
+}
+
+.winningButton span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #001eff);
+}
+
+.winningButton:hover span:nth-child(4) {
+  bottom: 100%;
+  transition: 0.7s;
+  transition-delay: 0.52s;
+}
+
+/*  */
+
+.showWinningMessage {
+  display: flex;
+}
+
+.hiddeTurnText {
+  color: #833ab4;
+}
