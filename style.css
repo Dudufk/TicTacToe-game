@@ -37,12 +37,12 @@ body {
 }
 
 h1 {
-  font-size: 3.5em;
-  padding: 1em 0;
+  font-size: 3em;
+  padding-top: 1em;
 }
 
 form {
-  margin-top: 5em;
+  margin-top: 1em;
 }
 
 p {
@@ -51,7 +51,7 @@ p {
 
 footer,
 a {
-  margin-top: 7em;
+  margin-top: 5em;
   font-size: 25px;
   text-decoration: none;
   color: var(--font-color);
@@ -366,8 +366,18 @@ a {
 
 /* Media querys */
 
-@media (min-width:515px) {
+@media (min-width: 515px) {
   h1 {
     font-size: 5em;
+    padding: 1em 0;
+  }
+
+  form {
+    margin-top: 5em;
+  }
+
+  footer,
+  a {
+    margin-top: 7em;
   }
 }
