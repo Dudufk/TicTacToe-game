@@ -37,7 +37,7 @@ body {
 }
 
 h1 {
-  font-size: 5em;
+  font-size: 3.5em;
   padding: 1em 0;
 }
 
@@ -362,4 +362,12 @@ a {
 
 .hiddeTurnText {
   color: #833ab4;
+}
+
+/* Media querys */
+
+@media (min-width:515px) {
+  h1 {
+    font-size: 5em;
+  }
 }
